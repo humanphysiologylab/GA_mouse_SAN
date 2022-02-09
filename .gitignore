@@ -1,0 +1,4 @@
+bondarenko/results/*
+*.o
+*.so
+*.out
