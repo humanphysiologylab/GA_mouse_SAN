@@ -139,7 +139,7 @@
                 "gamma_multiplier": 666.6
                       }
             },
-            "filename_phenotype": "../data/gonotkov_sp_404.csv",
+            "filename_phenotype": "../data/model1_404.csv",
             "filename_state": "../data/state_sp.txt"
         }
     }
