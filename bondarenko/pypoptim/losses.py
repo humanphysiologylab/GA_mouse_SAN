@@ -7,6 +7,15 @@ def RMSE(x, y, *, sample_weight=None, multioutput="uniform_average"):
         x, y, squared=False, sample_weight=sample_weight, multioutput=multioutput
     )
 
+def RMSE_heavy_peaks(x, y, peak_level = 0.9, peak_weight = 4.0):
+    level = x.min() + peak_level * x.ptp()
+    above_level = x >= level
+    below_level = x < level
+
+    above_errors = np.multiply(((y - x)**2), above_level) * peak_weight
+    below_errors = np.multiply(((y - x)**2), below_level)
+    return np.sqrt(above_errors.mean() + below_errors.mean())
+
 
 def calculate_RMSE(x, y) -> float:
     assert len(x) == len(y)  # TODO

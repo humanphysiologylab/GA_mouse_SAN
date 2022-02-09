@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 from pypoptim.helpers import calculate_mean_abs_noise, calculate_autoscaling
-from pypoptim.losses import calculate_RMSE_balanced, RMSE, calculate_RMSE_weightened
+from pypoptim.losses import calculate_RMSE_balanced, RMSE, calculate_RMSE_weightened, RMSE_heavy_peaks
 from cardiac_model import calculate_n_samples_per_stim
 
 import logging
@@ -243,6 +243,9 @@ def calculate_loss(sol, config):
 
             if config["loss"] == "RMSE":
                 loss += RMSE(phenotype_control, phenotype_model)
+
+            elif config["loss"] == "RMSE_heavy_peaks":
+                loss += RMSE_heavy_peaks(phenotype_control, phenotype_model)
 
             elif config["loss"] == "RMSE_balanced":
                 loss += calculate_RMSE_balanced(phenotype_control, phenotype_model)
