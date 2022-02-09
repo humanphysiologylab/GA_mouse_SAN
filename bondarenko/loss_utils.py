@@ -121,11 +121,11 @@ def align_depolarization(phenotype_model, phenotype_control):
     shift_model = depols[0]
     shift_control = np.where(v_control > v_level)[0][0]
 
-    shift = shift_control - shift_model
+    shift = shift_model - shift_control
 
-    phenotype_model = np.roll(phenotype_model, shift, axis=0)
+    phenotype_control = np.roll(phenotype_control, shift, axis=0)
 
-    return phenotype_model
+    return phenotype_control
 
 
 def calculate_V_CaT_shared(sol, config):
@@ -237,7 +237,7 @@ def calculate_loss(sol, config):
                     phenotype_model, phenotype_control
                 )
                 if type(align_res) != int:
-                    phenotype_model = align_res
+                    phenotype_control = align_res
                 else:
                     loss = np.Inf
 
