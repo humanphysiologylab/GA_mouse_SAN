@@ -2,3 +2,5 @@ bondarenko/results/*
 *.o
 *.so
 *.out
+*.pyc
+*__pycache__

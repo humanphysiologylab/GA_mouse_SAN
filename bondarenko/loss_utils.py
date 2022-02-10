@@ -240,6 +240,7 @@ def calculate_loss(sol, config):
                     phenotype_control = align_res
                 else:
                     loss = np.Inf
+                    return loss
 
             if config["loss"] == "RMSE":
                 loss += RMSE(phenotype_control, phenotype_model)

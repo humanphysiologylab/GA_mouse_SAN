@@ -8,13 +8,15 @@ def RMSE(x, y, *, sample_weight=None, multioutput="uniform_average"):
     )
 
 def RMSE_heavy_peaks(x, y, peak_level = 0.9, peak_weight = 4.0):
+    #if not isinstance(x, np.ndarray):
+    #    x = x.values
     level = x.min() + peak_level * x.ptp()
     above_level = x >= level
     below_level = x < level
 
     above_errors = np.multiply(((y - x)**2), above_level) * peak_weight
     below_errors = np.multiply(((y - x)**2), below_level)
-    return np.sqrt(above_errors.mean() + below_errors.mean())
+    return np.sqrt(above_errors.mean() + below_errors.mean())['V']
 
 
 def calculate_RMSE(x, y) -> float:
