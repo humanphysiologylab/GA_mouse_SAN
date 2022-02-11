@@ -113,7 +113,7 @@ def align_depolarization(phenotype_model, phenotype_control):
         return -1
 
     v_level = np.mean(v_control)  # 0 # mV
-    depols = np.where(np.multiply(np.roll(v_model, 1) < v_level, v_model > v_level))[0]
+    depols = np.where(np.multiply(np.roll(v_model, -1) > v_level, v_model < v_level))[0]
 
     if depols.shape[0] == 0:
         return -1
