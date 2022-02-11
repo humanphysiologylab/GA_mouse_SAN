@@ -255,14 +255,15 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   pde3ecavtot, pde4ecavtot, pde2cyttot, pde3cyttot,
   pde4cyttot, pde8cavtot, pde8ecavtot, pde8cyttot;
   // COMMON b7
-  double pdeact2, pdeact3, pdeact4, pdeact8;
+  //double pdeact2, pdeact3, pdeact4, pdeact8;
   // COMMON b8
   double pkacav, pkaecav, pkacyt,
   pkicavf, pkiecavf, pkicytf;
   // COMMON b9
-  double rb1ppka, rb1pbark, l, rb2ppka,rb2pbark;
+  //double rb1ppka, rb1pbark, rb2ppka,rb2pbark;
+  double l;
   // COMMON b10
-  double pde2mem, pde3mem, pde4mem, pde8mem;
+  //double pde2mem, pde3mem, pde4mem, pde8mem;
   // COMMON b11
   double pp1cytf, ficalcav;
   // COMMON b12
@@ -562,9 +563,9 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   double kmpde4 = 1.4f;
   double kpde8 = 0.0f;
   double kmpde8 = 0.15f;
-  double fpdepart = 0.2f;
-  double rpartpde23 = 0.570f;
-  double rpartpde34 = 0.748f;
+  //double fpdepart = 0.2f;//TODO UNUSED VAR WHY?
+  //double rpartpde23 = 0.570f;//TODO UNUSED VAR WHY?
+  //double rpartpde34 = 0.748f;//TODO UNUSED VAR WHY?
   double pde2tot = 0.034610f;
   double pde3tot = 0.010346f;
   double pde4tot = 0.026687f;
@@ -636,7 +637,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
     acavb2i * ccavb2i)) / (2.0f * acavb2i);
 
   gicavf = gicavabg / (1.0f + rb2cavpkaf * (1.0f / kb2a + l / (kb2a * kb2f)));
-  double lrb2cavpka = l * rb2cavpkaf / kb2l;
+  //double lrb2cavpka = l * rb2cavpkaf / kb2l;//TODO UNUSED VAR WHY?
   rb2gicavpka = rb2cavpkaf * gicavf / kb2a;
   lrb2gicavpka = l * rb2cavpkaf * gicavf / (kb2a * kb2f);
   double acavb2s = (kb1h + l) * (kb2h + l);
@@ -664,7 +665,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   double mcav = pow((-bcav * 0.5f + sqrt(dcav)), (1.0f / 3.0f));
   double ncav = pow((-bcav * 0.5f - sqrt(dcav)), (1.0f / 3.0f));
   //C
-  double y1cav;
+  double y1cav = 0.0f;
   double y2cav;
   double y3cav;
   if (dcav > 0.0f) {
@@ -743,7 +744,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
     aecavb2i * cecavb2i)) / (2.0f * aecavb2i);
   giecavf = giecavabg / (1.0f + rb2ecavpkaf * (1.0f / kb2a + l / (
     kb2a * kb2f)));
-  double lrb2ecavpka = l * rb2ecavpkaf / kb2l;
+  //double lrb2ecavpka = l * rb2ecavpkaf / kb2l;//TODO UNUSED VAR WHY?
   rb2giecavpka = rb2ecavpkaf * giecavf / kb2a;
   lrb2giecavpka = l * rb2ecavpkaf * giecavf / (kb2a * kb2f);
   double aecavb2s = (kb1h + l) * (kb2h + l);
@@ -771,7 +772,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   double mecav = pow((-becav * 0.5f + sqrt(decav)), (1.0f / 3.0f));
   double necav = pow((-becav * 0.5f - sqrt(decav)), (1.0f / 3.0f));
   //C
-  double y1ecav;
+  double y1ecav = 0.0f;
   double y2ecav;
   double y3ecav;
   if (decav > 0.0f) {
@@ -956,8 +957,8 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   //C
   //C INa module
   //C
-  double inatot = 0.0f;
-  double inacav = inatot * vcell / vcav;
+  //double inatot = 0.0f;//TODO UNUSED VAR WHY?
+  //double inacav = inatot * vcell / vcav;//TODO UNUSED VAR WHY?
   double kinapka = 6.8400e-6f;
   double kinapp = 1.9804e-5f;
   double kinampka = 5.49415e-3f;
@@ -992,28 +993,26 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   double kiktompka = 0.27623f;
   double kiktompp = 0.23310f;
   //C
-  double campcell = (y[97] * vcav + y[98] * vecav + y[99] * vcyt) / vcell;
-  double ccell = (y[83] * vcav + y[89] * vecav + y[95] * vcyt) / vcell;
-  double acactcell = (ydot[60] * vcav + ydot[61] * vecav + (ydot[62] +
-    ydot[63]) * vcyt) / vcell;
-  pdeact2 = (ydot[66] * vcav + ydot[71] * vecav + ydot[76] * vcyt) / vcell;
-  pdeact3 = (ydot[67] * vcav + ydot[72] * vecav + ydot[77] * vcyt) / vcell;
-  pdeact4 = (ydot[68] * vcav + ydot[73]* vecav + ydot[78] * vcyt) / vcell;
-  pdeact8 = (ydot[101] * vcav + ydot[102] * vecav + ydot[103] * vcyt) / vcell;
-  pde2mem = (ydot[66] * vcav + ydot[71] * vecav) / vcell;
-  pde3mem = (ydot[67] * vcav + ydot[72] * vecav) / vcell;
-  pde4mem = (ydot[68] * vcav + ydot[73] * vecav) / vcell;
-  pde8mem = (ydot[101] * vcav + ydot[102] * vecav) / vcell;
-  double pdeactcell = pdeact2 + pdeact3 + pdeact4 + pdeact8;
-  double pdemem = pde2mem + pde3mem + pde4mem + pde8mem;
-  double pkaactcell = (ydot[83] * vcav + ydot[89] * vecav + ydot[95] *
-    vcyt) / vcell;
-  rb1ppka = (y[45] * vcav + y[50] * vecav + y[55] * vcyt) / vcell;
-  rb1pbark = (y[46] * vcav + y[51] * vecav + y[56] * vcyt) / vcell;
-  double rb1ptot = rb1ppka + rb1pbark;
-  rb2ppka = (y[155] * vcav + y[159] * vecav) / vcell;
-  rb2pbark = (y[156] * vcav + y[160] * vecav) / vcell;
-  double rb2ptot = rb2ppka + rb2pbark;
+  //double campcell = (y[97] * vcav + y[98] * vecav + y[99] * vcyt) / vcell;//TODO UNUSED VAR WHY?
+  //double ccell = (y[83] * vcav + y[89] * vecav + y[95] * vcyt) / vcell;//TODO UNUSED VAR WHY?
+  //double acactcell = (ydot[60] * vcav + ydot[61] * vecav + (ydot[62] + ydot[63]) * vcyt) / vcell;//TODO UNUSED VAR WHY?
+  //pdeact2 = (ydot[66] * vcav + ydot[71] * vecav + ydot[76] * vcyt) / vcell;
+  //pdeact3 = (ydot[67] * vcav + ydot[72] * vecav + ydot[77] * vcyt) / vcell;
+  //pdeact4 = (ydot[68] * vcav + ydot[73]* vecav + ydot[78] * vcyt) / vcell;
+  //pdeact8 = (ydot[101] * vcav + ydot[102] * vecav + ydot[103] * vcyt) / vcell;
+  //pde2mem = (ydot[66] * vcav + ydot[71] * vecav) / vcell;
+  //pde3mem = (ydot[67] * vcav + ydot[72] * vecav) / vcell;
+  //pde4mem = (ydot[68] * vcav + ydot[73] * vecav) / vcell;
+  //pde8mem = (ydot[101] * vcav + ydot[102] * vecav) / vcell;
+  //double pdeactcell = pdeact2 + pdeact3 + pdeact4 + pdeact8;//TODO UNUSED VAR WHY?
+  //double pdemem = pde2mem + pde3mem + pde4mem + pde8mem;//TODO UNUSED VAR WHY?
+  //double pkaactcell = (ydot[83] * vcav + ydot[89] * vecav + ydot[95] * vcyt) / vcell;//TODO UNUSED VAR WHY?
+  //rb1ppka = (y[45] * vcav + y[50] * vecav + y[55] * vcyt) / vcell;
+  //rb1pbark = (y[46] * vcav + y[51] * vecav + y[56] * vcyt) / vcell;
+  //double rb1ptot = rb1ppka + rb1pbark;//TODO UNUSED VAR WHY?
+  //rb2ppka = (y[155] * vcav + y[159] * vecav) / vcell;
+  //rb2pbark = (y[156] * vcav + y[160] * vecav) / vcell;
+  //double rb2ptot = rb2ppka + rb2pbark;//TODO UNUSED VAR WHY?
   //C
   //C***********************************************************************
   //C            Calcium fluxes
@@ -1033,7 +1032,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   //C
   //C y[1]   : Membrane potential (mV)
   //C
-  double v = y[1];
+  //double v = y[1];
   //C
   //C Icab   : Calcium background current
   //C
@@ -1168,7 +1167,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   //double tau_fl13 = params[24];
   double tau_fca_ecav = fca_inf_ecav/alpha_fca;
   double tau_fca_cav = fca_inf_cav/alpha_fca;
-  double barium = params[28];
+  //double barium = params[28];
   ydot[187] = (dl13_inf - y[187]) / tau_dl13; //dl13
   ydot[188] = (fl13_inf - y[188]) / tau_fl13; //fl13
   ydot[189] = (fca_inf_ecav - y[189]) / tau_fca_ecav; //fca_ecav
@@ -1625,7 +1624,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   double alp5 = alp2 / 9.5e4f;
   double bet5 = alp3 / 50.0f;
   double vap = y[1] - 2.5f;
-  double vip = y[1] + 7.0f;
+  //double vip = y[1] + 7.0f;//TODO UNUSED VAR WHY?
   double alp11p = 3.802f / (0.1027f * exp(-vap / 17.0f) + 0.20f *
     exp(-vap / 150.f));
   double alp12p = 3.802f / (0.1027f * exp(-vap / 15.0f) + 0.23f *
@@ -2149,8 +2148,8 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   ydot[97] = ydot[79] + ydot[60] - ydot[66] - ydot[67] - ydot[68] - ydot[
     101] - jcavecav * (y[97] - y[98]) / vcav - jcavcyt * (y[97] - y[
     99]) / vcav;
-  double fluxcavecav = jcavecav * (y[97] - y[98]);
-  double fluxcavcyt = jcavcyt * (y[97] - y[99]);
+  //double fluxcavecav = jcavecav * (y[97] - y[98]);//TODO UNUSED VAR WHY?
+  //double fluxcavcyt = jcavcyt * (y[97] - y[99]);//TODO UNUSED VAR WHY?
   //C
   //C   y[102] cAMP change due to PDE8 extracaveolar domain
   //C
@@ -2161,8 +2160,8 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   ydot[98] = ydot[85] + ydot[61] - ydot[71] - ydot[72] - ydot[73] - ydot[
     102] - jcavecav * (y[98] - y[97]) / vecav - jecavcyt * (y[98] - y[
     99]) / vecav;
-  double fluxecavcav = jcavecav * (y[98] - y[97]);
-  double fluxecavcyt = jecavcyt * (y[98] - y[99]);
+  //double fluxecavcav = jcavecav * (y[98] - y[97]); //TODO UNUSED VAR WHY?
+  //double fluxecavcyt = jecavcyt * (y[98] - y[99]); //TODO UNUSED VAR WHY?
   //C
   //C   y[103] cAMP change due to PDE8 cytosolic domain
   //C
@@ -2173,8 +2172,8 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   ydot[99] = ydot[91] + ydot[62] + ydot[63] - ydot[76] - ydot[77] -
     ydot[78] - ydot[103] - jcavcyt * (y[99] - y[97]) / vcyt -
     jecavcyt * (y[99] - y[98]) / vcyt;
-  double fluxcytcav = jcavcyt * (y[99] - y[97]);
-  double fluxcytecav = jecavcyt * (y[99] - y[98]);
+  //double fluxcytcav = jcavcyt * (y[99] - y[97]); //TODO UNUSED VAR WHY?
+  //double fluxcytecav = jecavcyt * (y[99] - y[98]); //TODO UNUSED VAR WHY?
   //C
   //C    y[100] Inhibitor 1 cytosol phosphorylated
   //C
