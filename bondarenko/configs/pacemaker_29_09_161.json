@@ -3,7 +3,7 @@
     "n_elites": 16,
     "n_generations": 1000,
 
-    "output_folder_name": "results/bondarenko_test",
+    "output_folder_name": "../results/bondarenko_test",
     # "initial_population_filename": "PATH/backup.pickle",
 
     # genetic algorithm
@@ -37,7 +37,7 @@
                     "is_multiplier": true
                 },
                 "knaca": {
-                    "bounds": [0.1, 10.0],
+                    "bounds": [0.01, 10.0],
                     "is_multiplier": true
                 },
                 "inakmax": {
@@ -45,19 +45,19 @@
                     "is_multiplier": true
                 },
                 "ipcamax": {
-                    "bounds": [0.1, 10],
+                    "bounds": [0.01, 10],
                     "is_multiplier": true
                 },
                 "gcab": {
-                    "bounds": [0.1, 5],
+                    "bounds": [0.01, 5],
                     "is_multiplier": true
                 },
                 "gnab": {
-                    "bounds": [0.1, 5],
+                    "bounds": [0.01, 5],
                     "is_multiplier": true
                 },
                 "gks": {
-                    "bounds": [0.1, 10],
+                    "bounds": [0.01, 10],
                     "is_multiplier": true
                 },
                 "gkto": {
@@ -65,11 +65,11 @@
                     "is_multiplier": true
                 },
                 "gkr": {
-                    "bounds": [0.1, 10.0],
+                    "bounds": [0.01, 10.0],
                     "is_multiplier": true
                 },
                 "gclca": {
-                    "bounds": [0.1, 10],
+                    "bounds": [0.01, 10],
                     "is_multiplier": true
                 },
                 "CaLF": {
@@ -77,23 +77,23 @@
                     "is_multiplier": true
                 },
                 "CaTF": {
-                    "bounds": [0.1, 20],
+                    "bounds": [0.01, 20],
                     "is_multiplier": true
                 },
                 "RyR": {
-                    "bounds": [0.1, 10],
+                    "bounds": [0.01, 10],
                     "is_multiplier": true
                 },
                 "jleak": {
-                    "bounds": [0.1, 10],
+                    "bounds": [0.01, 10],
                     "is_multiplier": true
                 },
                 "SERCA": {
-                    "bounds": [0.1, 10],
+                    "bounds": [0.01, 10],
                     "is_multiplier": true
                 },
                 "gcakF": {
-                    "bounds": [0.1, 10],
+                    "bounds": [0.01, 10],
                     "is_multiplier": true
                 },
             		"ik1":{
@@ -101,11 +101,11 @@
             		    "is_multiplier":true
             		},
             		"funny":{
-            		    "bounds": [0.1, 20],
+            		    "bounds": [0.01, 20],
             		    "is_multiplier":true
             		},
 			          "CaL13":{
-            		    "bounds": [0.1, 24],
+            		    "bounds": [0.01, 24],
             		    "gamma_multiplier": 10.0,
             		    "is_multiplier":true
             		},
@@ -129,7 +129,7 @@
 
         "sp": {
             "params": {
-                "CL": 1000,
+                "CL": 781,
             "K_intra": {
                 "bounds":[100000, 180000],
                 "gamma_multiplier":6666.6
@@ -139,7 +139,7 @@
                 "gamma_multiplier": 666.6
                       }
             },
-            "filename_phenotype": "../data/ref_golovko.csv",
+            "filename_phenotype": "../data/29_09_161.csv",
             "filename_state": "../data/state_sp.txt"
         }
     }
