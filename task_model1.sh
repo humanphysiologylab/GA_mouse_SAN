@@ -1,7 +1,7 @@
 #!/bin/sh
 #SBATCH --time 12:00:00
 #SBATCH --partition normal
-#SBATCH -n64 -N4
+#SBATCH -n128 -N8
 #SBATCH --job-name gonotkov_ga_fit
 #SBATCH --comment pacemaker_genetic_algorithms
 
