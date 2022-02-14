@@ -524,9 +524,10 @@ int lsoda(struct lsoda_context_t * ctx, double *y, double *t, double tout) {
 
 		int             i=0, ihit=0;
 		const int neq = ctx->neq;
-		double          big, h0, hmx, rh, tcrit, tdist, tnext, tol,
+		double          big, hmx, rh, tcrit, tdist, tnext, tol,
 						tolsf, tp, size, sum, w0;
 
+		double h0 = 0.;
 		if(common == NULL) {
 		  hardfailure("[lsoda] illegal common block did you call lsoda_prepare?%s\n","");
 		}
