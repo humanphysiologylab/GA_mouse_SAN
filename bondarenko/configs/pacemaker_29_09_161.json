@@ -17,7 +17,7 @@
     #"columns_model": ["V"],
 
     # model
-    "filename_so": "/home/dmitry/work/GA_mouse_SAN/new_GA_lsoda/bondarenko/model/model.so",
+    "filename_so": "/data90t/users/rybashlykov/new_GA_lsoda/bondarenko/model/model.so",
     "filename_legend_states": "../model/legend_states.csv",
     "filename_legend_constants": "../model/legend_constants.csv",
 

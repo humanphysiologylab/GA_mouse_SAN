@@ -7,4 +7,4 @@
 
 cd /data90t/users/rybashlykov/new_GA_lsoda/bondarenko
 
-mpiexec python mpi_script.py /data90t/users/rybashlykov/new_GA_lsoda/bondarenko/configs/pacemaker_model_03_10_1601.json
+mpiexec python mpi_script.py /data90t/users/rybashlykov/new_GA_lsoda/bondarenko/configs/pacemaker_03_10_1601.json
