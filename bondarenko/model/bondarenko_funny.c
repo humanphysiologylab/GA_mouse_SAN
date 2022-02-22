@@ -1200,7 +1200,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
     inak + ikto + ik1 + iks + ikur + ikr - ALGEBRAIC[5] + icat + icak + ifna +
     ifk + ical13;
   //ydot[1] = 0;
-  ydot[1] = params[22] * (-sum_i / cm);
+  ydot[1] = params[22] * (-sum_i);
   //C
   //C y[2]  intracellular calcium Cai
   //C
