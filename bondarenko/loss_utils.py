@@ -30,7 +30,7 @@ def calculate_composite_RMSE_V_CaT(x, y):
 
     return rmse_total
 
-def calculate_cheating_RMSE(x, y):
+def calculate_cheating_RMSE(x, y, a_lb, b_lb, a_ub, b_ub):
     # x -- model, y -- experiment
     assert len(x) == len(y)
 
@@ -52,7 +52,8 @@ def calculate_cheating_RMSE(x, y):
 
     #rmse_v = calculate_RMSE_balanced(v_model, v_exp)  # v_exp --> [0, 1]
     v_exp_scaled, coeffs = calculate_autoscaling(
-        signal_to_scale = v_exp, signal_reference = v_model
+        signal_to_scale = v_exp, signal_reference = v_model,
+        a_lb, b_lb, a_ub, b_ub
     )
     rmse_cheating = RMSE(v_exp_scaled, v_model)
 
@@ -261,7 +262,8 @@ def calculate_loss(sol, config):
 
             elif config["loss"] == "cheating_RMSE":
                 loss += calculate_cheating_RMSE(
-                    phenotype_control, phenotype_model
+                    phenotype_control, phenotype_model, config['alpha_lb'],
+                    config['beta_lb'], config['alpha_ub'], config['beta_ub']
                 )
 
             elif config["loss"] == "composite_RMSE_V_CaT_noisy":

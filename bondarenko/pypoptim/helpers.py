@@ -2,6 +2,7 @@ import itertools
 
 import numpy as np
 from numba import njit
+from scipy.optimize import lsq_linear
 
 
 def uniform_vector(n=1, rng=None):
@@ -132,27 +133,14 @@ def transform_genes_bounds_back(
     return genes_back
 
 
-def calculate_autoscaling(signal_to_scale, signal_reference):
-    def scalar_multiplications(a, b):
-        if len(a) != len(b):
-            raise ValueError
-        coefficients = np.array(
-            [np.dot(a, b), np.sum(a), np.sum(b), np.sum(a ** 2), len(a)]
-        )
-        return coefficients
+def calculate_autoscaling(signal_to_scale, signal_reference, alpha_lb, beta_lb, alpha_ub, beta_ub):
 
-    c = scalar_multiplications(signal_to_scale, signal_reference)
+    A = np.stack((signal_to_scale, np.ones_like(signal_to_scale)), axis = 1)
+    a, b = lsq_linear(A, signal_reference, bounds = ([alpha_lb, beta_lb], [alpha_ub, beta_ub]))['x']
 
-    if c[1] == 0 or c[1] * c[1] - c[4] * c[3] == 0:
-        alpha = 0
-        beta = 0
-    else:
-        beta = (c[0] * c[1] - c[2] * c[3]) / (c[1] * c[1] - c[4] * c[3])
-        alpha = (c[2] - beta * c[4]) / c[1]
+    signal_scaled = signal_to_scale * a + b
 
-    signal_scaled = signal_to_scale * alpha + beta
-
-    return signal_scaled, (alpha, beta)
+    return signal_scaled, (a, b)
 
 
 def calculate_reflection(ub, lb, values, shifts):

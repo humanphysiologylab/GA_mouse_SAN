@@ -1,0 +1,150 @@
+{
+    "n_organisms": 1024,
+    "n_elites": 16,
+    "n_generations": 1000,
+
+    "output_folder_name": "../results/bondarenko_test",
+    # "initial_population_filename": "PATH/backup.pickle",
+
+    # genetic algorithm
+    "crossover_rate": 1.0,
+    "mutation_rate": 1.0,
+    "gamma": 0.015,  # <- !
+    "loss": "cheating_RMSE",
+    "alpha_lb": 0.9,
+    "alpha_ub": 1.1,
+    "beta_lb": -5.0,
+    "beta_ub": 5.0,
+    "ridge_regression": false,
+    "align_depolarization": true,
+    #"columns_control": ["V"],
+    #"columns_model": ["V"],
+
+    # model
+    "filename_so": "/data90t/users/rybashlykov/new_GA_lsoda/bondarenko/model/model.so",
+    "filename_legend_states": "../model/legend_states.csv",
+    "filename_legend_constants": "../model/legend_constants.csv",
+
+    # needed for ctypes
+    #"t_run": 9,
+    "n_beats": 10,
+    "t_sampling": 1,
+    "tol": 1e-4,
+    "stim_period_legend_name": "CL",
+
+    "experimental_conditions": {
+        "common": {
+            "params": {
+
+                "gna": {
+                    "bounds": [0.01, 5.0], #Lundby: 1.4
+                    "is_multiplier": true
+                },
+                "knaca": {
+                    "bounds": [0.01, 10.0],
+                    "is_multiplier": true
+                },
+                "inakmax": {
+                    "bounds": [0.01, 10],
+                    "is_multiplier": true
+                },
+                "ipcamax": {
+                    "bounds": [0.01, 20],
+                    "is_multiplier": true
+                },
+                "gcab": {
+                    "bounds": [0.01, 5],
+                    "is_multiplier": true
+                },
+                "gnab": {
+                    "bounds": [0.01, 5],
+                    "is_multiplier": true
+                },
+                "gks": {
+                    "bounds": [0.01, 10],
+                    "is_multiplier": true
+                },
+                "gkto": {
+                    "bounds": [0.01, 10.0], #Lundby: 0.1
+                    "is_multiplier": true
+                },
+                "gkr": {
+                    "bounds": [0.01, 10.0],
+                    "is_multiplier": true
+                },
+                "gclca": {
+                    "bounds": [0.01, 10],
+                    "is_multiplier": true
+                },
+                "CaLF": {
+                    "bounds": [0.01, 20],
+                    "is_multiplier": true
+                },
+                "CaTF": {
+                    "bounds": [0.01, 20],
+                    "is_multiplier": true
+                },
+                "RyR": {
+                    "bounds": [0.01, 10],
+                    "is_multiplier": true
+                },
+                "jleak": {
+                    "bounds": [0.01, 10],
+                    "is_multiplier": true
+                },
+                "SERCA": {
+                    "bounds": [0.01, 10],
+                    "is_multiplier": true
+                },
+                "gcakF": {
+                    "bounds": [0.01, 10],
+                    "is_multiplier": true
+                },
+            		"ik1":{
+            		    "bounds": [0.01, 10],
+            		    "is_multiplier":true
+            		},
+            		"funny":{
+            		    "bounds": [0.01, 20],
+            		    "is_multiplier":true
+            		},
+			          "CaL13":{
+            		    "bounds": [0.01, 24],
+            		    "gamma_multiplier": 10.0,
+            		    "is_multiplier":true
+            		},
+                "CaL13_inact_tau":{
+                    "bounds": [0.9, 10.0],
+                    "is_multiplier":true
+                },
+                "INa_11":{
+                    "bounds":[0.01, 10.0],
+                    "gamma_multiplier": 0.01,
+                    "is_multiplier":true
+                },
+                "ficalcav":{
+                    "bounds":[0.01, 0.6]
+                },
+                "fical13cav":{
+                    "bounds":[0.01, 0.6]
+                }
+            }
+        },
+
+        "sp": {
+            "params": {
+                "CL": 440,
+            "K_intra": {
+                "bounds":[100000, 180000],
+                "gamma_multiplier":6666.6
+                      },
+            "Na_intra":{
+                "bounds":[4000, 20000],
+                "gamma_multiplier": 666.6
+                      }
+            },
+            "filename_phenotype": "../data/model2_440.csv",
+            "filename_state": "../data/state_sp.txt"
+        }
+    }
+}
