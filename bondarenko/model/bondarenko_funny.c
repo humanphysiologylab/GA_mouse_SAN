@@ -1156,8 +1156,10 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   double alpha_fca = 0.021;
   double kmfca = 0.00035 * 1000;
 
-  double dl13_inf = 1/(1 + exp((-y[1] - 27.0)/7.0));
-  double fl13_inf = 1/(1 + exp((y[1] + 50.0)/6.0));
+  // double dl13_inf = 1/(1 + exp((-y[1] - 27.0)/7.0));
+  // double fl13_inf = 1/(1 + exp((y[1] + 50.0)/6.0));
+  double dl13_inf = 1/(1 + exp((-y[1] - params[30])/7.0));
+  double fl13_inf = 1/(1 + exp((y[1] + params[31])/6.0));
   double fca_inf_ecav = kmfca/(kmfca + y[7]);
   double fca_inf_cav = kmfca/(kmfca + y[2]);
   double alpha_dl13 = -28.39 * (y[1] + 35)/(exp((-y[1] + 35.0)/2.5) - 1) - 84.9 * y[1] / (exp(-0.208 * y[1]) - 1);
