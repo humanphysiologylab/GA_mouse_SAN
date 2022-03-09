@@ -1059,7 +1059,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   icasc = CaLFactor * ficalcav * (sfica * y[8] + sficap * y[107]) * (y[1] - 52.0f);
   icase = CaLFactor * (1.0f - ficalcav) * (sfica * y[137] + sficap * y[146]) * (y[
     1] - 52.0f);
-  icas =  icasc + icase;
+  icas =  params[32] * (icasc + icase);
   //C
   //C Icat   : T-type calcium current
   //C
@@ -1177,7 +1177,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   double cal13_cav_fraction = params[27];
   double ical13_ecav = params[23] * (1.0f - cal13_cav_fraction) * gcal13 * y[187] * y[188] * y[189] * (y[1] - 52.0f);
   double ical13_cav = params[23] * cal13_cav_fraction * gcal13 * y[187] * y[188] * y[190] * (y[1] - 52.0f);
-  double ical13 = (ical13_ecav + ical13_cav);
+  double ical13 = params[32] * (ical13_ecav + ical13_cav);
   //
   //late Na current
   //
