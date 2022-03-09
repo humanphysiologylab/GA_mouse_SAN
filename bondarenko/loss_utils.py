@@ -30,7 +30,7 @@ def calculate_composite_RMSE_V_CaT(x, y):
 
     return rmse_total
 
-def calculate_cheating_RMSE(x, y, a_lb, b_lb, a_ub, b_ub):
+def calculate_cheating_RMSE(x, y, a_lb = 0.8, b_lb = -5.0, a_ub = 1.2, b_ub = 5.0):
     # x -- model, y -- experiment
     assert len(x) == len(y)
 
@@ -53,7 +53,7 @@ def calculate_cheating_RMSE(x, y, a_lb, b_lb, a_ub, b_ub):
     #rmse_v = calculate_RMSE_balanced(v_model, v_exp)  # v_exp --> [0, 1]
     v_exp_scaled, coeffs = calculate_autoscaling(
         signal_to_scale = v_exp, signal_reference = v_model,
-        a_lb, b_lb, a_ub, b_ub
+        alpha_lb = a_lb, beta_lb = b_lb, alpha_ub = a_ub, beta_ub = b_ub
     )
     rmse_cheating = RMSE(v_exp_scaled, v_model)
 

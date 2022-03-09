@@ -133,7 +133,7 @@ def transform_genes_bounds_back(
     return genes_back
 
 
-def calculate_autoscaling(signal_to_scale, signal_reference, alpha_lb, beta_lb, alpha_ub, beta_ub):
+def calculate_autoscaling(signal_to_scale, signal_reference, alpha_lb = 0.8, beta_lb = -5.0, alpha_ub = 1.2, beta_ub = 5.0):
 
     A = np.stack((signal_to_scale, np.ones_like(signal_to_scale)), axis = 1)
     a, b = lsq_linear(A, signal_reference, bounds = ([alpha_lb, beta_lb], [alpha_ub, beta_ub]))['x']
