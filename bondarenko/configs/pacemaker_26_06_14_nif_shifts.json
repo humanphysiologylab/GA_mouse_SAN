@@ -105,10 +105,16 @@
             		    "is_multiplier":true
             		},
 			          "CaL13":{
-            		    "bounds": [0.01, 24],
+            		    "bounds": [0.01, 35],
             		    "gamma_multiplier": 10.0,
             		    "is_multiplier":true
             		},
+		"cav13_act":{
+                    "bounds": [17, 37]
+		},
+		"cav13_inact":{
+                    "bounds": [40, 60]
+                },
                 "CaL13_inact_tau":{
                     "bounds": [0.9, 10.0],
                     "is_multiplier":true
@@ -155,7 +161,7 @@
                 "gamma_multiplier": 666.6
                       },
 	    "CaLBlock":{
-		"bounds":[0.1, 1.0]
+		"bounds":[0.2, 0.5]
 		      }
             },
             "filename_phenotype": "../data/26_06_14_nif.csv",

@@ -10,7 +10,7 @@
     "crossover_rate": 1.0,
     "mutation_rate": 1.0,
     "gamma": 0.015,  # <- !
-    "loss": "RMSE_heavy_peaks",
+    "loss": "RMSE",
     "ridge_regression": false,
     "align_depolarization": true,
     #"columns_control": ["V"],

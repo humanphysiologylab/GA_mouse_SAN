@@ -7,4 +7,4 @@
 
 cd /data90t/users/rybashlykov/new_GA_lsoda/bondarenko
 
-mpiexec python mpi_script.py /data90t/users/rybashlykov/new_GA_lsoda/bondarenko/configs/shifts_model1.json
+mpiexec python mpi_script.py /data90t/users/rybashlykov/new_GA_lsoda/bondarenko/configs/pacemaker_26_06_14_nif_shifts.json
