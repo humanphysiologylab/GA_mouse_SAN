@@ -71,7 +71,7 @@
                       }
             },
             "filename_phenotype": "../data/synthetic_model1_404.csv",
-            "filename_state": "../data/state_sp.txt"
+            "filename_state": "../data/state_model1.csv"
         }
     }
 }
