@@ -144,7 +144,8 @@
                 "bounds":[4000, 20000],
                 "gamma_multiplier": 666.6
                       },
-	    "CaLBlock": 1.0
+	    "CaL12Block": 1.0,
+      "CaL13Block": 1.0
             },
             "filename_phenotype": "../data/26_06_14_control.csv",
             "filename_state": "../data/state_sp.txt"
@@ -160,9 +161,12 @@
                 "bounds":[4000, 20000],
                 "gamma_multiplier": 666.6
                       },
-	    "CaLBlock":{
+	    "CaL12Block":{
 		"bounds":[0.2, 0.5]
-		      }
+  },
+      "CaL13Block":{
+        "bounds":[0.72, 0.92]
+      }
             },
             "filename_phenotype": "../data/26_06_14_nif.csv",
             "filename_state": "../data/state_sp.txt"

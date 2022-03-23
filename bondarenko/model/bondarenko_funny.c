@@ -1177,7 +1177,7 @@ void fun(const double time, double* y, double* ydot, double* ALGEBRAIC, const do
   double cal13_cav_fraction = params[27];
   double ical13_ecav = params[23] * (1.0f - cal13_cav_fraction) * gcal13 * y[187] * y[188] * y[189] * (y[1] - 52.0f);
   double ical13_cav = params[23] * cal13_cav_fraction * gcal13 * y[187] * y[188] * y[190] * (y[1] - 52.0f);
-  double ical13 = params[32] * (ical13_ecav + ical13_cav);
+  double ical13 = params[33] * (ical13_ecav + ical13_cav);
   //
   //late Na current
   //
